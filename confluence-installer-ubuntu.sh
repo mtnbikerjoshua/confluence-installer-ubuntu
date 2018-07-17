@@ -4,7 +4,7 @@ sudo apt-get install mysql-server
 echo "Configuring MySQL..."
 cat mysqlconfig >> /etc/mysql/my.cnf
 sudo service mysql restart
-read -p "Please choose a password: " $mysqlpassword
+read -p "Please choose a password: " mysqlpassword
 sed -i s/InsertPasswordHere/$mysqlpassword/ mysqldatacreation.sql
 mysql < mysqldatacreation.sql
 echo "Downloading Confluence installer..."
