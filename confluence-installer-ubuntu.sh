@@ -2,7 +2,7 @@
 echo "Installing MySQL..."
 sudo apt-get install mysql-server
 echo "Configuring MySQL..."
-cat mysqlconfig4confluence >> /etc/mysql/my.cnf
+cat mysqlconfig >> /etc/mysql/my.cnf
 sudo service mysql restart
 mysql < mysqldatacreation.sql
 echo "Downloading Confluence installer..."
