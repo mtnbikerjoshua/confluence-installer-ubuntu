@@ -4,6 +4,8 @@ sudo apt-get install mysql-server
 echo "Configuring MySQL..."
 cat mysqlconfig >> /etc/mysql/my.cnf
 sudo service mysql restart
+read -p "Please choose a password: " $mysqlpassword
+sed -i s/InsertPasswordHere/$mysqlpassword/ mysqldatacreation.sql
 mysql < mysqldatacreation.sql
 echo "Downloading Confluence installer..."
 wget "https://www.atlassian.com/software/confluence/downloads/binary/atlassian-confluence-6.10.0-x64.bin"
@@ -24,4 +26,4 @@ echo "Hostname: localhost"
 echo "Port: 3306"
 echo "Database name: confluence"
 echo "Username: confluenceuser"
-echo "Password: Whatever you added to the mysqldatacreation.sql file (If you didn't change this, your password is InsertPasswordHere"
+echo "Password: " $mysqlpassword
