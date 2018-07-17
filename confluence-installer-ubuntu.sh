@@ -6,18 +6,18 @@ cat mysqlconfig >> /etc/mysql/my.cnf
 sudo service mysql restart
 mysql < mysqldatacreation.sql
 echo "Downloading Confluence installer..."
-wget "https://www.atlassian.com/software/confluence/downloads/binary/atlassian-$
+wget "https://www.atlassian.com/software/confluence/downloads/binary/atlassian-confluence-6.10.0-x64.bin"
 sudo chmod 555 atlassian-confluence-6.10.0-x64.bin
 ./atlassian-confluence-6.10.0-x64.bin
 rm atlassian-confluence-6.10.0-x64.bin
 echo "Insatlling MySQL driver..."
-wget "https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-5.1.$
+wget "https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-5.1.46.tar.gz"
 tar -xzf mysql-connector-java-5.1.46.tar.gz
 rm mysql-connector-java-5.1.46.tar.gz
-mv mysql-connector-java-5.1.46/mysql-connector-java-5.1.46.jar /opt/atlassian/c$
+mv mysql-connector-java-5.1.46/mysql-connector-java-5.1.46.jar /opt/atlassian/confluence/confluence/WEB-INF/lib/mysql-connector-java-5.1.46.jar
 rm -r mysql-connector-java-5.1.46
 /etc/init.d/confluence restart
-echo "You should now type yourserverip:8090 in your browser's address bar and s$
+echo "You should now type yourserverip:8090 in your browser's address bar and set up confluence"
 echo "Database type: MySQL"
 echo "Connection: Simple"
 echo "Hostname: localhost"
